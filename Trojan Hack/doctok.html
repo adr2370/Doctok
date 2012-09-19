@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]--><head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<title>DocTok</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Your name" />
+		<link rel="shortcut icon" href="file:///C|/Users/Alexander Ramirez/Dropbox/adr2370/favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style2.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style4.css" />
+		<link rel="stylesheet" type="text/css" href="../css/awesomebutton.css" />
+		<link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css' />
+	<script src="http://staging.tokbox.com/v0.91/js/TB.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+    
+	<style type="text/css">				
+			form.registration{
+  			  width:600px;
+  			  float:left;
+  			  color:#818181;
+  				background: #CFCFCF no-repeat top right;
+  				border: 2px solid #ccc;
+  				padding:10px;
+  				font-family: Georgia;
+  				font-size: 14px;
+  				-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  				-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  				-moz-border-radius: 15px;
+  				-webkit-border-radius: 15px;
+			}
+			form.registration fieldset{
+			    border-top:1px solid #ccc;
+			    border-left:0;
+			    border-bottom:0;
+			    border-right:0;
+			    padding:6px;
+			    margin:0px 30px 0px 0px;
+			}
+			form.registration legend{
+			    text-align:left;
+			    color:#ccc;
+			    font-size:18px;
+			    padding:0px 4px 0px 4px;
+			    margin-left:20px;
+			}
+
+			form.registration label{
+				  font-size: 26px;
+			    width:200px;
+			    float: left;
+			    text-align: right;
+			    color:#999;
+			    clear:left;
+			    margin:4px 4px 0px 0px;
+			    padding:0px;
+			}
+			form.registration input{
+				  font-family: Georgia;
+				  font-size: 24px;
+			    float:left;
+			    width:300px;
+			    border:1px solid #cccccc;
+			    margin:2px 0px 2px 2px;
+			    color:#00abdf;
+			    height:32px;
+			    padding:3px;
+				  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-border-radius: 5px;
+				  -moz-border-radius: 5px;
+			}
+
+			form.registration textarea{
+				  font-family: Georgia;
+				  font-size: 24px;
+			    float:left;
+			    width:300px;
+			    border:1px solid #cccccc;
+			    margin:2px 0px 2px 2px;
+			    color:#00abdf;
+			    height:150px;
+			    padding:3px;
+				  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-border-radius: 5px;
+				  -moz-border-radius: 5px;
+			}
+			form.registration input:focus, form.registration select:focus{
+				  background-color:#E0E6FF;
+			}
+			form.registration select{
+				  font-family: Georgia;
+				  font-size: 24px;
+			    float:left;
+			    border:1px solid #cccccc;
+			    margin:2px 0px 2px 2px;
+			    color:#00abdf;
+				  height:40px;
+				  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+				  -webkit-border-radius: 5px;
+				  -moz-border-radius: 5px;
+			}
+			.button, .button:visited{
+				  float:right;
+				  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+				  border-bottom: 1px solid rgba(0,0,0,0.25);
+				  cursor: pointer;
+				  padding: 5px 10px 5px 5px; 
+				  color: #fff; 
+				  text-decoration: none;
+				  font-size: 32px; padding: 10px 15px; 
+				  background-color: #00abdf;
+			    display: inline-block; 	
+			   	-moz-border-radius: 10px; 
+  				-webkit-border-radius: 10px;
+  				-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  				-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+			}
+			.button:hover{ 
+				  background-color: #777; 
+			}
+		</style>
+	<div id="fb-root"></div>
+	<script>
+		var name;
+		var email;
+		var gender;
+		var id;
+		var firstname;
+		var middlename;
+		var lastname;
+		var color;
+		var isDoctor=false;
+		var otherName;
+		var otherEmail;
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '224786917610559',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,            
+          });
+          /*FB.Event.subscribe('auth.login', function (response){
+                console.log(response);
+              window.location = "http://google.com"; 
+            });*/
+        };
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);           
+         }(document));
+		 
+		(function(){window.location = "#11"}());
+        function after_login()
+        {
+            /*var login = document.getElementById("button");
+            login.style.visbility = "hidden";   */ 
+            
+            FB.api('/me', function(response) 
+            {
+                window.location = "#12";
+				name=response.name;
+				email=response.email;
+				gender=response.gender;
+				id=response.id;
+				firstname=response.first_name;
+				middlename=response.middle_name;
+				lastname=response.last_name;
+				if(name!='undefined') {
+					hide(1);
+					show(2);
+					show(12);
+				}
+				else {
+					hide(2);
+					show(1);
+					show(11);
+				}
+        	})
+        }      
+		
+		function emailThing()
+		{
+			if(isDoctor) {
+				var url = "https://sendgrid.com/api/mail.send.xml?api_user=justinisyoung&api_key=secureLayer&to="+otherEmail+"&toname="+otherName+"&subject=Doctor's Notes&text=";
+				console.log(document.getElementById("doctorsnotes"));
+				console.log(document.getElementById("doctorsnotes").value);
+				url += document.getElementById("doctorsnotes").value+"&from="+email;
+				console.log(url);
+				newwindow=window.open(url,'_blank');
+				newwindow.blur();
+				window.focus();
+				newwindow.close();
+			}
+			remove()
+		}
+
+        function displayNext(id)
+        {
+        	window.location = "#" + (10 + id);
+        }
+
+        function hide(id)
+        {
+        	var object = document.getElementById(id);
+        	object.style.visibility = "hidden";
+        }
+        
+        function show(id)
+        {
+        	var object = document.getElementById(id);
+        	object.style.visibility = "visible";
+        	window.location = "#" + id;
+        }
+		
+		function getUrlVars() {
+    		var vars = {};
+    		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+       			vars[key] = value;
+   			});
+    		return vars;
+		}
+
+  		function connectDoctor() {
+			isDoctor=true;
+			color = id;
+			hide(2);
+			show(5);
+			show(6);
+			showUser();
+		}
+		
+  		function connectPatient1() {
+			isDoctor=false;
+			show(3);
+			window.open("#13",'_self');
+			load();
+		}
+		
+		function showUser()
+		{
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					window.open('#15','_self');
+					connect();
+   				}
+			}
+			xmlhttp.open("GET","getuser.php?q="+color+"&n="+name,true);
+			xmlhttp.send();
+		}
+		
+		function load() {
+			if(firstname!=undefined) document.getElementById("firstname").value=firstname;
+			if(middlename!=undefined) document.getElementById("middlename").value=middlename;
+			if(lastname!=undefined) document.getElementById("lastname").value=lastname;
+			if(gender="male") {
+				document.getElementById("sex").value=2;
+			}
+			if(email!='undefined') document.getElementById("email").value=email;
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					var xmlDoc=xmlhttp.responseText;
+					var firstname=xmlDoc.substring(xmlDoc.indexOf('<firstname>')+11,xmlDoc.indexOf('</firstname>'));
+					var middlename=xmlDoc.substring(xmlDoc.indexOf('<middlename>')+12,xmlDoc.indexOf('</middlename>'));
+					var lastname=xmlDoc.substring(xmlDoc.indexOf('<lastname>')+10,xmlDoc.indexOf('</lastname>'));
+					var sex=xmlDoc.substring(xmlDoc.indexOf('<sex>')+5,xmlDoc.indexOf('</sex>'));
+					var birthday=xmlDoc.substring(xmlDoc.indexOf('<birthday>')+10,xmlDoc.indexOf('</birthday>'));
+					var birthmonth=xmlDoc.substring(xmlDoc.indexOf('<birthmonth>')+12,xmlDoc.indexOf('</birthmonth>'));
+					var birthyear=xmlDoc.substring(xmlDoc.indexOf('<birthyear>')+11,xmlDoc.indexOf('</birthyear>'));
+					var address=xmlDoc.substring(xmlDoc.indexOf('<address>')+9,xmlDoc.indexOf('</address>'));
+					var city=xmlDoc.substring(xmlDoc.indexOf('<city>')+6,xmlDoc.indexOf('</city>'));
+					var state=xmlDoc.substring(xmlDoc.indexOf('<state>')+7,xmlDoc.indexOf('</state>'));
+					var zipcode=xmlDoc.substring(xmlDoc.indexOf('<zipcode>')+9,xmlDoc.indexOf('</zipcode>'));
+					var email=xmlDoc.substring(xmlDoc.indexOf('<email>')+7,xmlDoc.indexOf('</email>'));
+					var phone=xmlDoc.substring(xmlDoc.indexOf('<phone>')+7,xmlDoc.indexOf('</phone>'));
+					var medication=xmlDoc.substring(xmlDoc.indexOf('<medication>')+12,xmlDoc.indexOf('</medication>'));
+					var familyhistory=xmlDoc.substring(xmlDoc.indexOf('<familyhistory>')+15,xmlDoc.indexOf('</familyhistory>'));
+					if(firstname!='') document.getElementById("firstname").value=firstname;
+					if(middlename!='') document.getElementById("middlename").value=middlename;
+					if(lastname!='') document.getElementById("lastname").value=lastname;
+					if(sex!='') document.getElementById("sex").value=sex;
+					if(birthday!='') document.getElementById("birthday").value=birthday;
+					if(birthmonth!='') document.getElementById("birthmonth").value=birthmonth;
+					if(birthyear!='') document.getElementById("birthyear").value=2013-birthyear;
+					if(address!='') document.getElementById("address").value=address;
+					if(city!='') document.getElementById("city").value=city;
+					if(state!='') document.getElementById("state").value=state;
+					if(zipcode!='') document.getElementById("zipcode").value=zipcode;
+					if(email!='') document.getElementById("email").value=email;
+					if(phone!='') document.getElementById("phone").value=phone;
+					if(medication!='') document.getElementById("medication").value=medication;
+					if(familyhistory!='') document.getElementById("familyhistory").value=familyhistory;
+   				}
+			}
+			xmlhttp.open("GET","record.php?id="+id,true);
+			xmlhttp.send();
+		}
+		
+		function remove2()
+		{
+			hide(3);
+			hide(4);
+			hide(5);
+			remove();
+		}
+		
+		function remove3()
+		{
+			hide(4);
+			hide(5);
+			remove();
+		}
+		
+		function remove4()
+		{
+			hide(5);
+			remove();
+		}
+		
+		function remove5()
+		{
+			remove();
+		}
+		
+		function remove()
+		{
+			disconnect();
+			var str=color;
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.open("GET","finduser.php?q="+str,true);
+			xmlhttp.send();
+			hide("sessionContent");
+		}
+		
+		function connectPatient2() {
+			show(4);
+			record();
+		}
+		
+		function record()
+		{
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					window.open("#14",'_self');
+					loadDoctors();
+   				}
+			}
+			var firstnameField = document.getElementById("firstname").value;
+			var middlenameField = document.getElementById("middlename").value;
+			var lastnameField = document.getElementById("lastname").value;
+			var sexField = document.getElementById("sex").value;
+			var birthdayField = document.getElementById("birthday").value;
+			var birthmonthField = document.getElementById("birthmonth").value;
+			var birthyearField = 2013-document.getElementById("birthyear").value;
+			var addressField = document.getElementById("address").value;
+			var cityField = document.getElementById("city").value;
+			var stateField = document.getElementById("state").value;
+			var zipcodeField = document.getElementById("zipcode").value;
+			var emailField = document.getElementById("email").value;
+			var phoneField = document.getElementById("phone").value;
+			var medicationField = document.getElementById("medication").value;
+			var familyhistoryField = document.getElementById("familyhistory").value;
+			xmlhttp.open("GET","getrecords.php?firstname="+firstnameField+"&middlename="+middlenameField+"&lastname="+lastnameField+"&sex="+sexField+"&birthday="+birthdayField+"&birthmonth="+birthmonthField+"&birthyear="+birthyearField+"&address="+addressField+"&city="+cityField+"&state="+stateField+"&zipcode="+zipcodeField+"&email="+emailField+"&phone="+phoneField+"&medication="+medicationField+"&familyhistory="+familyhistoryField+"&id="+id,true);
+			xmlhttp.send();
+		}
+  		function connectPatient() {
+			color = document.getElementById("idNumber").value;
+			console.log(id);
+			if(color!="") checkId();
+		}
+		function checkId()
+		{
+			var name=id;
+			var str=color;
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  				{
+    				if(xmlhttp.responseText=="YES")
+					{
+						show(5);
+						window.open('#15','_self');
+						connect();
+					}
+					else
+					{
+						document.getElementById("sup").innerHTML="Someone already connected with this doctor, refresh the page";
+					}
+				}
+  			}
+			xmlhttp.open("GET","finduser.php?q="+str,true);
+			xmlhttp.send();
+		}
+  		var API_KEY = 1127; // OpenTok sample code key. Replace with your own API key.
+		var SESSION_ID = "1413daf79cd28402b7f08edde415d28ae5b0c194"; // Replace with your session ID.
+		var TOKEN = "devtoken";	// Should not be hard-coded.
+									// Add to the page using the OpenTok server-side libraries.
+		var session;
+		var publisher;
+		var subscribers = {};
+		var numStreams = 0;
+		var subscriberProps = {width: 440,height: 330};
+		// var color=Math.floor(Math.random()*1000001);
+
+		// Un-comment either of the following to set automatic logging and exception handling.
+		// See the exceptionHandler() method below.
+		// TB.setLogLevel(TB.DEBUG);
+		// TB.addEventListener("exception", exceptionHandler);
+
+		if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
+			alert("You don't have the minimum requirements to run this application."
+				  + "Please upgrade to the latest version of Flash.");
+		} else {
+			session = TB.initSession(SESSION_ID);
+
+			// Add event listeners to the session
+			session.addEventListener("sessionConnected", sessionConnectedHandler);
+			session.addEventListener("sessionDisconnected", sessionDisconnectedHandler);
+			session.addEventListener("streamCreated", streamCreatedHandler);
+			session.addEventListener("streamDestroyed", streamDestroyedHandler);
+			session.addEventListener("connectionCreated", connectionCreatedHandler);
+			session.addEventListener("connectionDestroyed", connectionDestroyedHandler);
+		}
+
+		//--------------------------------------
+		//  OPENTOK EVENT HANDLERS
+		//--------------------------------------
+
+		function sessionConnectedHandler(event) {
+			setStatus("");
+			for (var i = 0; i < event.streams.length; i++) {
+				addStream(event.streams[i]);
+			}
+			for (i = 0; i < event.connections.length; i++) {
+				addConnection(event.connections[i]);
+			}
+
+			startPublishing();
+		}
+
+		function sessionDisconnectedHandler(event) {
+			document.getElementById("sessionContent").style.display = 'none';
+		}
+
+		function streamCreatedHandler(event) {
+			for (var i = 0; i < event.streams.length; i++) {
+				addStream(event.streams[i]);
+			}
+		}
+
+		function streamDestroyedHandler(event) {
+			for (var i = 0; i < event.streams.length; i++) {
+				removeStream(event.streams[i].streamId);
+				if (event.streams[i].connection.connectionId == session.connection.connectionId) {
+					publisher = null;
+				} else {
+					removeStream(event.streams[i].streamId);
+				}
+			}
+		}
+
+		function connectionCreatedHandler(event) {
+			for (i = 0; i < event.connections.length; i++) {
+				addConnection(event.connections[i]);
+			}
+		}
+
+		function connectionDestroyedHandler(event) {
+			for (i = 0; i < event.connections.length; i++) {
+				removeConnection(event.connections[i]);
+			}
+		}
+
+		/*
+		If you un-comment the call to TB.addEventListener("exception", exceptionHandler) above, OpenTok calls the
+		exceptionHandler() method when exception events occur. You can modify this method to further process exception events.
+		If you un-comment the call to TB.setLogLevel(), above, OpenTok displays exception event messages to the debugging console.
+		*/
+		function exceptionHandler(event) {
+			alert("Exception: " + event.code + "::" + event.message);
+		}
+
+		//--------------------------------------
+		//  LINK CLICK HANDLERS
+		//--------------------------------------
+
+		/*
+		If testing the app from the desktop, be sure to check the Flash Player Global Security setting
+		to allow the page from communicating with SWF content loaded from the web. For more information,
+		see http://www.tokbox.com/opentok/build/tutorials/helloworld.html#localTest
+		*/
+		function connect() {
+			var usernameField = id;
+			var colorSelect = color;
+			var nameField = name;
+			var emailField = email;
+			var sessionContent = document.getElementById("sessionContent");
+			var userProperties = {username: usernameField, color: color, nameField: nameField, emailField: emailField};
+			try {
+				var connectionData = JSON.stringify(userProperties);
+			} catch (error) {
+				connectionData = '{' + '"username":"' + usernameField + '", "color":"' + color + '"}';
+			}
+			var sessionConnectProperties = {connectionData:connectionData};
+			session.connect(API_KEY, TOKEN, sessionConnectProperties);
+			document.getElementById("sessionContent").style.display = 'block';
+			setStatus("Connecting...");
+			var parentDiv = document.getElementById("connectionsContainer");
+			var publisherDiv = document.createElement('div'); // Create a div for the publisher to replace
+			publisherDiv.setAttribute('id', 'color');
+			parentDiv.appendChild(publisherDiv);
+		}
+
+		function disconnect() {
+			for (streamId in subscribers) {
+				removeStream(streamId);
+			}
+			stopPublishing();
+			if(document.getElementById("connections")!=null) document.getElementById("connections").innerHTML = "";
+			session.disconnect();
+		}
+
+		// Called when user wants to start publishing to the session
+		function startPublishing() {
+			if (!publisher) {
+				var parentDiv = document.getElementById("myCamera");
+				var publisherDiv = document.createElement('div'); // Create a div for the publisher to replace
+				publisherDiv.setAttribute('id', 'opentok_publisher');
+				parentDiv.appendChild(publisherDiv);
+				var publisherProps = {width: 440, height: 330};
+				publisher = session.publish(publisherDiv.id, publisherProps);			
+			}
+		}
+
+		function stopPublishing() {
+			if (publisher) {
+				session.unpublish(publisher);
+			}
+			publisher = null;
+		}
+
+		//--------------------------------------
+		//  HELPER METHODS
+		//--------------------------------------
+
+		function addStream(stream) {
+			numStreams += 1;
+			var connectionData = getConnectionData(stream.connection);
+			if(connectionData.color == color) {
+			if (stream.connection.connectionId == session.connection.connectionId) {
+				return;
+			}
+			// Create the container for the subscriber
+			var container = document.createElement('div');
+			container.className = "subscriberContainer";
+			var containerId = "container_" + stream.streamId;
+			container.setAttribute("id", containerId);
+			document.getElementById("subscribers").appendChild(container);
+
+			// Create the div that will be replaced by the subscriber
+			var div = document.createElement('div');
+			var divId = stream.streamId;
+			div.setAttribute('id', divId);
+			div.style.cssFloat = "top";
+			container.appendChild(div);
+
+			// Create a div for the user data
+			var subscriberData = document.createElement('div');
+			subscriberData.style.cssFloat = "bottom";
+			var connectionData = getConnectionData(stream.connection);
+			if(isDoctor) getPatientInfo(connectionData.username);
+			else console.log("sup");
+			otherEmail=connectionData.emailField;
+			otherName=connectionData.nameField;
+			subscriberData.style.margin = "0px 0px 2px 4px";
+			container.appendChild(subscriberData);
+			subscribers[stream.streamId] = session.subscribe(stream, divId, subscriberProps);
+			}
+		}
+
+		function addConnection(connection) {
+			if (connection.connectionId != session.connection.connectionId) {
+				var connectionListing = document.createElement('p');
+				connectionData = getConnectionData(connection);
+				connectionListing.style.margin = "0px 0px 2px 4px";
+				connectionListing.innerHTML = connection.connectionId;
+				connectionListing.innerHTML = connectionData.username + ' (' + connectionData.color + ')';
+				connectionListing.setAttribute("id", connection.connectionId);
+			}
+		}
+
+		function getConnectionData(connection) {
+			try {
+				connectionData = JSON.parse(connection.data);
+			} catch(error) {
+				connectionData = eval("(" + connection.data + ")" );
+			}
+			return connectionData;
+		}
+
+		function removeStream(streamId) {
+			numStreams -= 1;
+			var subscriber = subscribers[streamId];
+			if (subscriber) {
+				var container = document.getElementById(subscriber.id).parentNode;
+
+				session.unsubscribe(subscriber);
+				delete subscribers[streamId];
+
+				// Clean up the subscriber container
+				document.getElementById("subscribers").removeChild(container);
+			}
+		}
+		
+		function removeConnection(connection) {
+			connectionListing = document.getElementById(connection.connectionId);
+			if (connectionListing) {
+				document.getElementById("connections").removeChild(connectionListing);
+			}
+		}
+
+		function setStatus(statusString) {
+			document.getElementById("status").innerHTML = statusString;
+		}
+
+		/*function show(id) {
+			document.getElementById(id).style.display = 'block';
+		}
+
+		function hide(id) {
+			document.getElementById(id).style.display = 'none';
+		}*/
+		
+		function addBack()
+		{
+			document.getElementById("sessionContent").style.display = 'none';
+			if(numStreams > 1) {
+				var str=color;
+				if (str=="")
+  				{
+  					document.getElementById("txtHint").innerHTML="";
+  					return;
+  				} 
+				if (window.XMLHttpRequest)
+  				{// code for IE7+, Firefox, Chrome, Opera, Safari
+  					xmlhttp=new XMLHttpRequest();
+  				}
+				else
+  				{// code for IE6, IE5
+  					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  				}
+				xmlhttp.open("GET","getuser.php?q="+str+"&n="+name,true);
+				xmlhttp.send();
+			}
+		}
+		
+		function loadDoctors() {
+			if (window.XMLHttpRequest)
+ 			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					document.getElementById("doctors").innerHTML='<p>Select a doctor: <select id="idNumber">'+xmlhttp.responseText+'</select></p>';
+    			}
+			}
+			xmlhttp.open("GET","getall.php",true);
+			xmlhttp.send();
+		}
+		
+		function getPatientInfo(thisCoolNumber) {
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+				console.log(xmlhttp);
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					console.log("function start");
+					var xmlDoc=xmlhttp.responseText;
+					console.log(xmlDoc);
+					console.log(thisCoolNumber);
+					var firstname=xmlDoc.substring(xmlDoc.indexOf('<firstname>')+11,xmlDoc.indexOf('</firstname>'));
+					var middlename=xmlDoc.substring(xmlDoc.indexOf('<middlename>')+12,xmlDoc.indexOf('</middlename>'));
+					var lastname=xmlDoc.substring(xmlDoc.indexOf('<lastname>')+10,xmlDoc.indexOf('</lastname>'));
+					var sex=xmlDoc.substring(xmlDoc.indexOf('<sex>')+5,xmlDoc.indexOf('</sex>'));
+					var birthday=xmlDoc.substring(xmlDoc.indexOf('<birthday>')+10,xmlDoc.indexOf('</birthday>'));
+					var birthmonth=xmlDoc.substring(xmlDoc.indexOf('<birthmonth>')+12,xmlDoc.indexOf('</birthmonth>'));
+					var birthyear=xmlDoc.substring(xmlDoc.indexOf('<birthyear>')+11,xmlDoc.indexOf('</birthyear>'));
+					var address=xmlDoc.substring(xmlDoc.indexOf('<address>')+9,xmlDoc.indexOf('</address>'));
+					var city=xmlDoc.substring(xmlDoc.indexOf('<city>')+6,xmlDoc.indexOf('</city>'));
+					var state=xmlDoc.substring(xmlDoc.indexOf('<state>')+7,xmlDoc.indexOf('</state>'));
+					var zipcode=xmlDoc.substring(xmlDoc.indexOf('<zipcode>')+9,xmlDoc.indexOf('</zipcode>'));
+					var email=xmlDoc.substring(xmlDoc.indexOf('<email>')+7,xmlDoc.indexOf('</email>'));
+					var phone=xmlDoc.substring(xmlDoc.indexOf('<phone>')+7,xmlDoc.indexOf('</phone>'));
+					var medication=xmlDoc.substring(xmlDoc.indexOf('<medication>')+12,xmlDoc.indexOf('</medication>'));
+					var familyhistory=xmlDoc.substring(xmlDoc.indexOf('<familyhistory>')+15,xmlDoc.indexOf('</familyhistory>'));
+					if(firstname!='') document.getElementById("a").innerHTML="First Name: "+firstname;
+					if(middlename!='') document.getElementById("b").innerHTML="Middle Name: "+middlename;
+					if(lastname!='') document.getElementById("c").innerHTML="Last Name: "+lastname;
+					if(sex=="2") document.getElementById("d").innerHTML="Gender: Male";
+					else document.getElementById("d").innerHTML="Gender: Female";
+					if(birthday!=''&birthmonth!=''&birthyear!='') document.getElementById("e").innerHTML="Date of Birth: "+birthmonth+"/"+birthday+"/"+birthyear;
+					if(address!=''&city!=''&state!=''&zipcode!='') document.getElementById("h").innerHTML="Address: "+address+", "+city+", "+state+" "+zipcode;
+					if(email!='') document.getElementById("l").innerHTML="Email: "+email;
+					if(phone!='') document.getElementById("m").innerHTML="Phone Number: "+phone;
+					if(medication!='') document.getElementById("n").innerHTML="Medication: "+medication;
+					if(familyhistory!='') document.getElementById("o").innerHTML="Family History: "+familyhistory;
+   				}
+			}
+			xmlhttp.open("GET","record.php?id="+thisCoolNumber,true);
+			xmlhttp.send();
+		}
+		
+  </script>
+	<body>		
+				
+		<!-- Login -->
+		<div id="11" class="panel">
+			<div class="content">
+				<h2>Log In</h2>
+				<div class="fb-login-button" data-scope="email" id = "button" onlogin = "after_login()" >Connect to Facebook</div>
+
+			</div>
+		</div>
+		<!-- /Login -->
+		
+
+		<!-- Portfolio -->
+		<div id="12" class="panel">
+			<div class="content">
+				<h2>Patient or Doctor?</h2>
+					<a class="button2" style="visibility:hidden"> HiM </a>
+					<a class="button2" onClick="javascript:connectPatient1()"> Patient </a>
+					<a class="button2" style="visibility:hidden"> Hi There Everybody </a>
+ 					<a class="button2" onClick="javascript:connectDoctor()"> Doctor </a>
+			</div>
+		</div>
+		<!-- /Portfolio -->
+		
+		<!-- About -->
+		<div id="13" class="panel">
+			<div class="content">
+				<h2>Medical Record</h2>
+                <div id="form">
+    <form class="registration">
+        <fieldset>
+            <label>First name</label>
+            <input id="firstname" type="text" maxlength="20" value="" style="background-color:#FFF; color: #000"/>           
+            <label>Middle name</label>
+            <input id="middlename" type="text" maxlength="20" value="" style="background-color:#FFF; color: #000"/>  
+            <label>Last name</label>
+            <input id="lastname" type="text" maxlength="20" value="" style="background-color:#FFF; color: #000"/>  
+            <label>Sex</label>
+            <select id="sex" style="background-color:#FFF; color: #000">
+                <option value="1">F</option> 
+                <option value="2">M</option>                            
+            </select>                                
+            <label>Birthdate</label>
+            <select id="birthmonth" style="background-color:#FFF; color: #000">                               
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="birthday" style="background-color:#FFF; color: #000">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>                             
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>                
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select id="birthyear" style="background-color:#FFF; color: #000">
+                <option value="1">2012</option>
+				<option value="2">2011</option>
+				<option value="3">2010</option>
+				<option value="4">2009</option>
+				<option value="5">2008</option>
+				<option value="6">2007</option>
+				<option value="7">2006</option>
+				<option value="8">2005</option>
+				<option value="9">2004</option>
+				<option value="10">2003</option>
+				<option value="11">2002</option>
+				<option value="12">2001</option>
+				<option value="13">2000</option>
+				<option value="14">1999</option>
+				<option value="15">1998</option>
+				<option value="16">1997</option>
+				<option value="17">1996</option>
+				<option value="18">1995</option>
+				<option value="19">1994</option>
+				<option value="20">1993</option>
+				<option value="21">1992</option>
+				<option value="22">1991</option>
+				<option value="23">1990</option>
+				<option value="24">1989</option>
+				<option value="25">1988</option>
+				<option value="26">1987</option>
+				<option value="27">1986</option>
+				<option value="28">1985</option>
+				<option value="29">1984</option>
+				<option value="30">1983</option>
+				<option value="31">1982</option>
+				<option value="32">1981</option>
+				<option value="33">1980</option>
+				<option value="34">1979</option>
+				<option value="35">1978</option>
+				<option value="36">1977</option>
+				<option value="37">1976</option>
+				<option value="38">1975</option>
+				<option value="39">1974</option>
+				<option value="40">1973</option>
+				<option value="41">1972</option>
+				<option value="42">1971</option>
+				<option value="43">1970</option>
+				<option value="44">1969</option>
+				<option value="45">1968</option>
+				<option value="46">1967</option>
+				<option value="47">1966</option>
+				<option value="48">1965</option>
+				<option value="49">1964</option>
+				<option value="50">1963</option>
+				<option value="51">1962</option>
+				<option value="52">1961</option>
+				<option value="53">1960</option>
+				<option value="54">1959</option>
+				<option value="55">1958</option>
+				<option value="56">1957</option>
+				<option value="57">1956</option>
+				<option value="58">1955</option>
+				<option value="59">1954</option>
+				<option value="60">1953</option>
+				<option value="61">1952</option>
+				<option value="62">1951</option>
+				<option value="63">1950</option>
+				<option value="64">1949</option>
+				<option value="65">1948</option>
+				<option value="66">1947</option>
+				<option value="67">1946</option>
+				<option value="68">1945</option>
+				<option value="69">1944</option>
+				<option value="70">1943</option>
+				<option value="71">1942</option>
+				<option value="72">1941</option>
+				<option value="73">1940</option>
+				<option value="74">1939</option>
+				<option value="75">1938</option>
+				<option value="76">1937</option>
+				<option value="77">1936</option>
+				<option value="78">1935</option>
+				<option value="79">1934</option>
+				<option value="80">1933</option>
+				<option value="81">1932</option>
+				<option value="82">1931</option>
+				<option value="83">1930</option>
+				<option value="84">1929</option>
+				<option value="85">1928</option>
+				<option value="86">1927</option>
+				<option value="87">1926</option>
+				<option value="88">1925</option>
+				<option value="89">1924</option>
+				<option value="90">1923</option>
+				<option value="91">1922</option>
+				<option value="92">1921</option>
+				<option value="93">1920</option>
+				<option value="94">1919</option>
+				<option value="95">1918</option>
+				<option value="96">1917</option>
+				<option value="97">1916</option>
+				<option value="98">1915</option>
+				<option value="99">1914</option>
+				<option value="100">1913</option>
+				<option value="101">1912</option>
+				<option value="102">1911</option>
+				<option value="103">1910</option>
+				<option value="104">1909</option>
+				<option value="105">1908</option>
+				<option value="106">1907</option>
+				<option value="107">1906</option>
+				<option value="108">1905</option>
+				<option value="109">1904</option>
+				<option value="110">1903</option>
+				<option value="111">1902</option>
+				<option value="112">1901</option>
+				<option value="113">1900</option>
+            </select>
+            <label>Address</label>
+            <input id="address" type="text" maxlength="50" value="" style="background-color:#FFF; color: #000"/> 
+            <label>City</label>
+            <input id="city" type="text" maxlength="30" value="" style="background-color:#FFF; color: #000"/>           
+            <label>State</label>
+            <select id="state" name="state" style="background-color:#FFF; color: #000">
+				<option value="AL">AL</option>
+				<option value="AK">AK</option>
+				<option value="AZ">AZ</option>
+				<option value="AR">AR</option>
+				<option value="CA">CA</option>
+				<option value="CO">CO</option>
+				<option value="CT">CT</option>
+				<option value="DE">DE</option>
+				<option value="DC">DC</option>
+				<option value="FL">FL</option>
+				<option value="GA">GA</option>
+				<option value="HI">HI</option>
+				<option value="ID">ID</option>
+				<option value="IL">IL</option>
+				<option value="IN">IN</option>
+				<option value="IA">IA</option>
+				<option value="KS">KS</option>
+				<option value="KY">KY</option>
+				<option value="LA">LA</option>
+				<option value="ME">ME</option>
+				<option value="MD">MD</option>
+				<option value="MA">MA</option>
+				<option value="MI">MI</option>
+				<option value="MN">MN</option>
+				<option value="MS">MS</option>
+				<option value="MO">MO</option>
+				<option value="MT">MT</option>
+				<option value="NE">NE</option>
+				<option value="NV">NV</option>
+				<option value="NH">NH</option>
+				<option value="NJ">NJ</option>
+				<option value="NM">NM</option>
+				<option value="NY">NY</option>
+				<option value="NC">NC</option>
+				<option value="ND">ND</option>
+				<option value="OH">OH</option>
+				<option value="OK">OK</option>
+				<option value="OR">OR</option>
+				<option value="PA">PA</option>
+				<option value="RI">RI</option>
+				<option value="SC">SC</option>
+				<option value="SD">SD</option>
+				<option value="TN">TN</option>
+				<option value="TX">TX</option>
+				<option value="UT">UT</option>
+				<option value="VT">VT</option>
+				<option value="VA">VA</option>
+				<option value="WA">WA</option>
+				<option value="WV">WV</option>
+				<option value="WI">WI</option>
+				<option value="WY">WY</option>
+			</select>            
+            <label>Zip</label>
+            <input id="zipcode" type="text" maxlength="5" value="" style="background-color:#FFF; color: #000"/> 
+            <label>Email</label>
+            <input id="email" type="text" maxlength="30" value="" style="background-color:#FFF; color: #000"/>
+            <label>Phone</label>
+            <input id="phone" type="text" maxlength="10" value="" style="background-color:#FFF; color: #000"/>
+            <label>Medication</label>
+            <textarea id="medication" rows="10" cols="30" style="background-color:#FFF; color: #000; width:300px"> </textarea>  
+            <label>Family History</label>
+            <textarea id="familyhistory" rows="10" cols="30" style="background-color:#FFF; color: #000; width:300px"> </textarea>           	      
+        </fieldset> 
+        <fieldset>
+        	<a class="button2" onClick="javascript:connectPatient2()">Update Information</a>
+        </fieldset>  
+    </form>
+    </div>
+			</div>
+		</div>
+		<!-- /About -->
+		
+		<!-- Contact -->
+		<div id="14" class="panel">
+			<div class="content">
+				<h2>Find a Doctor</h2>
+        <div id="content">
+            <div id="wrapper">
+                <div id="steps">
+<div id="sup"> </div>
+<div id="login">
+  <div id="doctors">
+    Select a doctor:
+      <select id="idNumber">
+      </select>
+    
+  </div>
+</div>
+    <br/>
+    	<a class="button2" onClick="javascript:connectPatient()">Patient</a>
+    	<a class="button2" onClick="javascript:loadDoctors()">Refresh Doctor List</a>
+   
+</div>
+</div>
+</div>
+			</div>
+		</div>
+		<!-- /Contact -->
+		
+		<!-- Doctor Chat -->
+		<div id="15" class="panel">
+			<div class="content">
+				<h2>You Are Live!</h2>
+                <div id="content">
+            <div id="wrapper">
+                <div id="steps">
+  	<div>
+    	<a class="button2" onClick="javascript:emailThing()">End</a>
+		<br/><br/>
+ 	</div>
+    <div id="sessionContent" style="display:none; clear:both">
+        <div id="topBar">
+        	<div id="status"></div>
+        </div>
+        <div id="myCamera" class="publisherContainer" style="height:220px; margin-right:10px"></div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+            <div id="connectionsContainer"></div>
+        <div id="subscribers" style="height:240px" style="float:left"></div>
+    </div>
+    </div>
+</div>
+</div>
+			</div>
+		</div>
+		<!-- /Doctor Chat -->
+
+		<!-- Header with Navigation -->
+            <div id="rightside" style="position:fixed; right:0px">
+				<div id = "6" style = "visibility:hidden">
+                <h1>Patient Data</h1>
+                	<div id="doctornotes2">
+                    	<label>Doctor Notes: </label>
+            			<textarea id="doctorsnotes" rows="10" cols="26" style="background-color:#FFF; color: #000; width:260px"> </textarea>
+                    </div>
+            		<div id="a"></div>
+                    <div id="b"></div>
+                    <div id="c"></div>
+                    <div id="d"></div>
+                    <div id="e"></div>
+                    <div id="f"></div>
+                    <div id="g"></div>
+                    <div id="h"></div>
+                    <div id="i"></div>
+                    <div id="j"></div>
+                    <div id="k"></div>
+                    <div id="l"></div>
+                    <div id="m"></div>
+                    <div id="n"></div>
+                    <div id="o"></div>
+                    <br/>
+            	</div>
+			</div>
+            
+		<div id="header">
+			<h1>DocTok</h1>
+			<ul id="navigation">
+				<div id = "1"><a id="link-11" href="#11">Log In</a></div>
+				<div id = "2" style = "visibility:hidden"><a id="link-12" href="#12" onClick="javascript:remove2()">Patient or Doctor?</a></div>
+				<div id = "3" style = "visibility:hidden"><a id="link-13" href="#13" onClick="javascript:remove3()">Medical Record</a></div>
+				<div id = "4" style = "visibility:hidden"><a id="link-14" href="#14" onClick="javascript:remove4()">Find a Doctor</a></li>
+				<div id = "5" style = "visibility:hidden"><a id="link-15" href="#15" onClick="javascript:remove5()">Video Chat</a></li>
+			</ul>
+			<!-- Demo Nav -->
+			<!-- <nav id="codrops-demos">
+				<a href="index.html#home">Demo 1</a>
+				<a class="current-demo" href="#home">Demo 2</a>
+				<a href="index3.html#home">Demo 3</a>
+			</nav> -->
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>OpenTok Getting Started</title>
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen"/>
+		
+<script type="text/javascript">
+		var name = getUrlVars()["name"];
+		var email = getUrlVars()["email"];
+		var gender = getUrlVars()["gender"];
+		var id = getUrlVars()["id"];
+		var firstname = getUrlVars()["firstname"];
+		var middlename = getUrlVars()["middlename"];
+		var lastname = getUrlVars()["lastname"];
+		
+		function getUrlVars() {
+    		var vars = {};
+    		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+       			vars[key] = value;
+   			});
+    		return vars;
+		}
+
+  		function connectDoctor() {
+			var colorSelect = Math.floor(Math.random()*1000001);
+			showUser(colorSelect,name);
+		}
+		
+  		function connectPatient() {
+			window.open("/form.html?name=" + name + "&email=" + email + "&gender=" + gender + "&id=" + id + "&firstname=" + firstname + "&middlename=" + middlename + "&lastname=" + lastname,'_self');
+		}
+		
+		function showUser(str,name)
+		{
+			if (str=="")
+  			{
+  				document.getElementById("txtHint").innerHTML="";
+  				return;
+  			} 
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					window.open('/doctor.html?name='+name+'&id='+str,'_self');
+   				}
+			}
+			xmlhttp.open("GET","getuser.php?q="+str+"&n="+name,true);
+			xmlhttp.send();
+		}
+  </script>
+</head>
+<style>
+        span.reference{
+            position:fixed;
+            left:5px;
+            top:5px;
+            font-size:10px;
+            text-shadow:1px 1px 1px #fff;
+        }
+        span.reference a{
+            color:#555;
+            text-decoration:none;
+			text-transform:uppercase;
+        }
+        span.reference a:hover{
+            color:#000;
+            
+        }
+        h1{
+            color:#ccc;
+            font-size:36px;
+            text-shadow:1px 1px 1px #fff;
+            padding:20px;
+        }
+    </style>
+<body>
+<div id="content">
+  <h1>Which Are You?</h1>
+  <div id="wrapper">
+    <div id="steps">
+      <div id="sup"> </div>
+      <div id="login"></div>
+      <p>
+        <input type="button" value="Doctor" id ="connectLink" onClick="javascript:connectDoctor()" />
+        <input type="button" value="Patient" id ="connectLink" onClick="javascript:connectPatient()" />
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
