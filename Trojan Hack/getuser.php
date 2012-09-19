@@ -2,10 +2,10 @@
 $q=$_GET["q"];
 $n=$_GET["n"];
 
-$user_name = "alextestdatabase";
-$password = "Maxmisty9";
-$database = "alextestdatabase";
-$server = "alextestdatabase.db.8323874.hostedresource.com";
+$user_name = "";
+$password = "";
+$database = "";
+$server = "";
 
 $con = mysql_connect($server, $user_name, $password);
 
