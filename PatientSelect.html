@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>OpenTok Getting Started</title>
+        <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen"/>
+		
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+<script type="text/javascript">
+		loadDoctors();
+		var id = getUrlVars()["id"];
+		function getUrlVars() {
+    		var vars = {};
+    		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+       			vars[key] = value;
+   			});
+    		return vars;
+		}
+		
+		function loadDoctors() {
+			if (window.XMLHttpRequest)
+ 			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+					document.getElementById("doctors").innerHTML='<p>Select a doctor: <select id="idNumber">'+xmlhttp.responseText+'</select></p>';
+    			}
+			}
+			xmlhttp.open("GET","getall.php",true);
+			xmlhttp.send();
+		}
+		
+  		function connectPatient() {
+			var colorSelect = document.getElementById("idNumber");
+			checkId(colorSelect.value,name);
+		}
+		function checkId(str,name)
+		{
+			if (str=="")
+  			{
+  				document.getElementById("txtHint").innerHTML="";
+  				return;
+  			} 
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+  				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			xmlhttp.onreadystatechange=function()
+  			{
+  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  				{
+    				if(xmlhttp.responseText=="YES")
+					{
+						window.open('/patient.html?name='+name+'&id='+str,'_self');
+					}
+					else
+					{
+						document.getElementById("sup").innerHTML="Someone already connected with this doctor, refresh the page";
+					}
+				}
+  			}
+			xmlhttp.open("GET","finduser.php?q="+str,true);
+			xmlhttp.send();
+		}
+  </script>
+</head>
+<style>
+        span.reference{
+            position:fixed;
+            left:5px;
+            top:5px;
+            font-size:10px;
+            text-shadow:1px 1px 1px #fff;
+        }
+        span.reference a{
+            color:#555;
+            text-decoration:none;
+			text-transform:uppercase;
+        }
+        span.reference a:hover{
+            color:#000;
+            
+        }
+        h1{
+            color:#ccc;
+            font-size:36px;
+            text-shadow:1px 1px 1px #fff;
+            padding:20px;
+        }
+    </style>
+<body>
+
+        <div id="content">
+            <div id="wrapper">
+                <div id="steps">
+<div id="sup"> </div>
+<div id="login">
+  <div id="doctors">
+    <p>Select a doctor:
+      <select id="idNumber">
+      </select>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <p>
+      <input type="button" value="Patient" id ="connectLink" onClick="javascript:connectPatient()" />
+    </p>
+  </div>
+  <div class="span3">
+    <p>
+      <input type="button" value="Refresh Doctor List" id ="connectLink" onClick="javascript:loadDoctors()" />
+    </p>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
